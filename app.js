@@ -19,9 +19,24 @@ recept-hodnoceni, recept-nazev, recept-popis.
 
 const elRecepty = document.querySelector("#recepty");
 
-vypisSeznamReceptu(){
+vypisSeznamReceptu();
+
+function vypisSeznamReceptu() {
     let obsah = "";
-    elRecepty
+    
+    for (let i =  0; i < recepty.length; i++) {
+        let recept = recepty[i];
+        obsah += `<div class="recept">
+        <div class="recept-obrazek">
+            <img src="${recept.img}" alt="Obrazek">
+        </div>
+
+        <div class="recept-info">
+            <h3>${recept.nadpis}</h3>
+        </div>
+    </div>` 
+    }
+    elRecepty.innerHTML = obsah; 
 };
 
 
