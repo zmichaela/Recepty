@@ -18,14 +18,24 @@ recept-hodnoceni, recept-nazev, recept-popis.
 */
 
 const elRecepty = document.querySelector("#recepty");
+const elHledat = document.querySelector("#hledat");
 
+let vyhledaneRecepty = recepty;
+vyhledejRecepty();
 vypisSeznamReceptu();
+
+function vyhledejRecepty () {
+    vyhledaneRecepty = vyhledaneRecepty.filter(function (recept) {
+        return recept.nadpis.toLowerCase().includes("dort");
+    });
+}
+
 
 function vypisSeznamReceptu() {
     let obsah = "";
     
-    for (let i =  0; i < recepty.length; i++) {
-        let recept = recepty[i];
+    for (let i =  0; i < vyhledaneRecepty.length; i++) {
+        let recept = vyhledaneRecepty[i];
         obsah += `<div class="recept">
         <div class="recept-obrazek">
             <img src="${recept.img}" alt="Obrazek">
