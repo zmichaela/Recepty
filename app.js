@@ -19,14 +19,19 @@ recept-hodnoceni, recept-nazev, recept-popis.
 
 const elRecepty = document.querySelector("#recepty");
 const elHledat = document.querySelector("#hledat");
+const elTlacitko = document.querySelector(".hledani button");
 
 let vyhledaneRecepty = recepty;
 vyhledejRecepty();
-vypisSeznamReceptu();
+
+elTlacitko.addEventListener("click", vyhledejRecepty);
 
 function vyhledejRecepty () {
+    
+    let textHledani = elHledat.value.toLowerCase();
+
     vyhledaneRecepty = vyhledaneRecepty.filter(function (recept) {
-        return recept.nadpis.toLowerCase().includes("dort");
+        return recept.nadpis.toLowerCase().includes(textHeldani);
     });
 }
 
