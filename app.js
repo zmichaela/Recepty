@@ -25,14 +25,16 @@ let vyhledaneRecepty = recepty;
 vyhledejRecepty();
 
 elTlacitko.addEventListener("click", vyhledejRecepty);
+elHledat.addEventListener("input", vyhledejRecepty);
 
 function vyhledejRecepty () {
     
     let textHledani = elHledat.value.toLowerCase();
-
+    vyhledaneRecepty = recepty;
     vyhledaneRecepty = vyhledaneRecepty.filter(function (recept) {
-        return recept.nadpis.toLowerCase().includes(textHeldani);
+        return recept.nadpis.toLowerCase().includes(textHledani);
     });
+    vypisSeznamReceptu();
 }
 
 
